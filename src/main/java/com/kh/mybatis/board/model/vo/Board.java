@@ -16,11 +16,10 @@ import lombok.ToString;
 public class Board {
 	private int boardNo;
 	private String boardTitle;
-	private String boardCount;
+	private String boardContent;
 	private int boardWriter;
 	private int count;
 	private Date createDate;
 	private String status;
-	
 	private String userId;
 }

@@ -17,34 +17,37 @@
         <br>
 
         <table align="center" border="1">
-            <tr>
-                <td width="100">글번호</td>
-                <td width="500">1</td>
-            </tr>
-            <tr>
-                <td>제목</td>
-                <td>글입니다</td>
-            </tr>
-            <tr>
-                <td>작성자</td>
-                <td>admin</td>
-            </tr>
-            <tr>
-                <td>조회수</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td>작성일</td>
-                <td>24/04/09</td>
-            </tr>
-            <tr>
-                <td>내용</td>
-                <td height="100">
-                    이글은 무엇인가요?
-                </td>
-            </tr>
+        	<c:forEach var="board" items="${list}">
+	        	<c:if test="${boardNo == board.boardNo}">
+		            <tr>
+		                <td width="100">글번호</td>
+		                <td width="500">${board.boardNo}</td>
+		            </tr>
+		            <tr>
+		                <td>제목</td>
+		                <td>${board.boardTitle}</td>
+		            </tr>
+		            <tr>
+		                <td>작성자</td>
+		                <td>${board.userId}</td>
+		            </tr>
+		            <tr>
+		                <td>조회수</td>
+		                <td>${board.count}</td>
+		            </tr>
+		            <tr>
+		                <td>작성일</td>
+		                <td>${board.createDate}</td>
+		            </tr>
+		            <tr>
+		                <td>내용</td>
+		                <td height="100">
+		                    ${board.boardContent}
+		                </td>
+		            </tr>
+	            </c:if>
+            </c:forEach>
         </table>
-
         <br>
 
         <table align="center" border="1">

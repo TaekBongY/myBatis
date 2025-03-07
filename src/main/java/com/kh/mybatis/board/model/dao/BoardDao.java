@@ -38,4 +38,9 @@ public class BoardDao {
 		ArrayList<Board> list = (ArrayList)sqlSession.selectList("BoardMapper.selectSearchList", map, rowBounds);
 		return list;
 	}
+	
+	public ArrayList<Board> selectSearchDetailList(SqlSession sqlSession) {
+		ArrayList<Board> list = (ArrayList)sqlSession.selectList("BoardMapper.selectDetailList",null);
+		return list;
+	}
 }

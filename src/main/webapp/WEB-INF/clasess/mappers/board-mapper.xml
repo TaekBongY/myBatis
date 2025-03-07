@@ -13,6 +13,7 @@
 	  	<!-- <result column="테이블의 컬럼명" property="객체의 필드명"/> -->
 	  	<result column="BOARD_NO" property="boardNo"/>
 	  	<result column="BOARD_TITLE" property="boardTitle"/>
+	  	<result column="BOARD_CONTENT" property="boardContent"/>
 	  	<result column="USER_ID" property="userId"/>
 	  	<result column="COUNT" property="count"/>
 	  	<result column="CREATE_DATE" property="createDate"/>
@@ -73,5 +74,18 @@
  		 </choose>
  		  LIKE '%${keyword}%' 
  		 ORDER BY BOARD_NO DESC
+ 	</select>
+ 	
+ 	<select id="selectDetailList" resultMap="boardResultMap">
+ 	SELECT BOARD_NO,
+		   BOARD_TITLE,
+		   BOARD_CONTENT,
+		   USER_ID,	   
+		   COUNT,
+		   CREATE_DATE
+	FROM BOARD B
+	JOIN MEMBER ON(BOARD_WRITER = USER_NO)
+	WHERE B.STATUS = 'Y'
+
  	</select>
 </mapper>

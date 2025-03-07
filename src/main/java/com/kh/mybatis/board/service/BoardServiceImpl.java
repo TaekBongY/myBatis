@@ -53,5 +53,15 @@ public class BoardServiceImpl implements BoardService{
 		
 		return list;
 	}
+	
+	@Override
+	public ArrayList<Board> selectDetailList() {
+		SqlSession sqlSession = Templete.getSqlSession();
+		ArrayList<Board> list = bDao.selectSearchDetailList(sqlSession);
+
+		sqlSession.close();
+		
+		return list;
+	}
 
 }
